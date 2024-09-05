@@ -4,29 +4,54 @@ import Banner from "./components/Banner";
 import satData from "./components/satData";
 import React, {useState} from 'react'
 
-function App() {
-    const [sat, setSat] =
-  useState(satData);
-    const displaySats = 
-  satData.filter((newSatDisplay) => {
-      return newSatDisplay.orbitType === currentType;
-  });
-  setSat(displaySats)
-  return (
-    <div>
-      <Banner />
-      <Buttons />
-        filterByType={filterByType}
-        setSat={setSat}
-        displaySats={displaySats}
-      <Table />
-    </div>
-  );
+// function App() {
+//     const [sat, setSat] = useState(satData);
+//     const filterByType = (currentType) => {
+//       const filteredSats =satData.filter((newSatDisplay) =>{
+//         return newSatDisplay.orbitType === currentType
+//       })
+//       setSat(filteredSats)
+//     }
+  
+//   return (
+//     <div>
+//       <Banner />
+//       <Buttons />
+//         filterByType={filterByType}
+//         setSat={setSat}
+//         displaySats={displaySats}
+//       <Table sat={sat} />
+//     </div>
+//   );
 
-const filterByType = (currentType) => {
-  const newSatDisplay = satData.filter()
+// }
+
+function App() {
+  const [sat, setSat] = useState(satData); 
+
+  const filterByType = (currentType) => {
+      const filteredSats = satData.filter((newSatDisplay) => {
+          return newSatDisplay.orbitType === currentType; 
+      });
+      setSat(filteredSats); 
+  };
+
+  return (
+      <div>
+          <Banner />
+          {}
+          <Buttons 
+              filterByType={filterByType}  
+              setSat={setSat}             
+              displaySats={sat}            
+          />
+          <Table sat={sat} />  
+      </div>
+  );
 }
-}
+
+
+
 
 
 
